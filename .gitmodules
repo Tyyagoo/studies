@@ -1,0 +1,3 @@
+[submodule "lang/elixir/toy-robot"]
+	path = lang/elixir/toy-robot
+	url = https://github.com/Tyyagoo/toy-robotex
