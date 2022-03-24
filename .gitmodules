@@ -4,3 +4,6 @@
 [submodule "lang/elixir/learning-fp-with-elixir/dungeon-crawlex"]
 	path = lang/elixir/learning-fp-with-elixir/dungeon-crawlex
 	url = https://github.com/Tyyagoo/dungeon-crawlex
+[submodule "lang/elixir/elixir-in-action/todo-ex"]
+	path = lang/elixir/elixir-in-action/todo-ex
+	url = https://github.com/Tyyagoo/todo-ex
