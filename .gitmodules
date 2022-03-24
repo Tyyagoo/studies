@@ -1,0 +1,9 @@
+[submodule "lang/elixir/toy-robot"]
+	path = lang/elixir/toy-robot
+	url = https://github.com/Tyyagoo/toy-robotex
+[submodule "lang/elixir/learning-fp-with-elixir/dungeon-crawlex"]
+	path = lang/elixir/learning-fp-with-elixir/dungeon-crawlex
+	url = https://github.com/Tyyagoo/dungeon-crawlex
+[submodule "lang/elixir/elixir-in-action/todo-ex"]
+	path = lang/elixir/elixir-in-action/todo-ex
+	url = https://github.com/Tyyagoo/todo-ex
