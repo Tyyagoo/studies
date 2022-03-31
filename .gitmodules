@@ -7,3 +7,6 @@
 [submodule "lang/elixir/elixir-in-action/todo-ex"]
 	path = lang/elixir/elixir-in-action/todo-ex
 	url = https://github.com/Tyyagoo/todo-ex
+[submodule "lang/elixir/programming-elixir/issuex"]
+	path = lang/elixir/programming-elixir/issuex
+	url = git@github.com:Tyyagoo/issuex.git
