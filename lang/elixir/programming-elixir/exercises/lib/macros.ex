@@ -1,5 +1,10 @@
 defmodule Exercises.Macros do
-  import Kernel, except: [unless: 2]
+  defmacro __using__(_opts) do
+    quote do
+      import Kernel, except: [unless: 2]
+      import unquote(__MODULE__)
+    end
+  end
 
   @doc """
   Write a macro called myunless that implements the standard unless
