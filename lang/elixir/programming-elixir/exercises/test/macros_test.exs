@@ -1,6 +1,8 @@
 defmodule Exercises.Macros.Test do
   use ExUnit.Case, async: true
   use Exercises.Macros
+  import ExUnit.CaptureIO, only: [capture_io: 1]
+  alias Exercises.Traceable
 
   # Expand at RunTime, used to avoid invalid macro calls preventing compilation
   # of the tests.
@@ -73,6 +75,21 @@ defmodule Exercises.Macros.Test do
                    5 + 3 * ((10 + 20) / 2 + 5) / 5 - 2
                  end
                )
+    end
+  end
+
+  describe "when using tracer" do
+    test "it must handle function definitions with guards" do
+      expected = "==> call `Exercises.Traceable.sum/2` with args: [10, 30]\n<== return 40\n"
+
+      assert expected == capture_io(fn -> Traceable.sum(10, 30) end)
+    end
+
+    test "it must handle function definitions without guards" do
+      expected =
+        "==> call `Exercises.Traceable.print/1` with args: [{:ok, :all_good}]\n{:ok, :all_good}\n<== return {:ok, :all_good}\n"
+
+      assert expected == capture_io(fn -> Traceable.print({:ok, :all_good}) end)
     end
   end
 end
