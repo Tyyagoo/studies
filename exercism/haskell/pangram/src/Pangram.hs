@@ -1,11 +1,6 @@
 module Pangram (isPangram) where
-import Data.List (delete)
+import Data.List ((\\))
 import Data.Char (toLower)
 
 isPangram :: String -> Bool
-isPangram text = null (reducePangram (map toLower text) ['a'..'z'])
-
-reducePangram :: [Char] -> [Char] -> [Char]
-reducePangram [] acc = acc
-reducePangram _text [] = []
-reducePangram (letter:text) acc = reducePangram text (delete letter acc)
+isPangram text = null (['a'..'z'] \\ (map toLower text))
