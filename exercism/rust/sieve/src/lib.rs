@@ -1,12 +1,16 @@
 pub fn primes_up_to(upper_bound: u64) -> Vec<u64> {
-    let mut primes = (2..=upper_bound).map(|n| Some(n)).collect::<Vec<_>>();
+    let mut primes: Vec<_> = (2..=upper_bound).map(|x| Some(x)).collect();
 
-    for x in 2..=upper_bound {
-        primes = primes
-            .iter()
-            .filter_map(|n| (((*n)? < x * x) || (*n)? % x != 0).then_some(*n))
-            .collect::<Vec<Option<u64>>>();
+    for curr in 2..=upper_bound {
+        if let Some(None) = primes.get((curr - 2) as usize) {
+            continue;
+        }
+
+        let idx = (curr * curr) - 2;
+        for x in (idx..=(upper_bound - 2)).step_by(curr as usize) {
+            primes[x as usize] = None;
+        }
     }
 
-    primes.iter().filter_map(|sn| *sn).collect::<Vec<u64>>()
+    primes.iter().filter_map(|no| *no).collect()
 }
