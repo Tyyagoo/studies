@@ -11,13 +11,8 @@
 (defn annual-balance-update
   "Returns the annual balance update, taking into account the interest rate."
   [balance]
-  (-> balance
-    interest-rate
-    (Math/abs)
-    (bigdec)
-    (/ 100)
-    (+ 1)
-    (* balance)))
+  (def interest (+ (* (bigdec (Math/abs (interest-rate balance))) 0.01M) 1))
+  (* balance interest))
 
 (defn amount-to-donate
   "Returns how much money to donate based on the balance and the tax-free percentage."
