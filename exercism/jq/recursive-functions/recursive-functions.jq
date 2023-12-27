@@ -1,0 +1,29 @@
+def hd: first;
+def tl: .[1:];
+
+# Add the elements of the input array, and return the sum.
+#
+# Example:
+#   [1, 2, 3] | array_add           # => 6
+def array_add:
+  if length == 0 then 0
+  else hd + (tl | array_add) end;
+
+# Reverse the input array, and return the result in a new array.
+#
+# Example:
+#   [1, 2, 3] | array_reverse       # => [3, 2, 1]
+
+def array_reverse:
+  if length == 0 then []
+  else (tl | array_reverse) + [hd] end;
+
+# Run the filter `f` for each element of the input array,
+# and return the outputs in a new array.
+#
+# Example:
+#   [1, 2, 3] | array_map(. + 1)    # => [2, 3, 4]
+
+def array_map(f):
+  if length == 0 then []
+  else [hd | f] + (tl | array_map(f)) end;
